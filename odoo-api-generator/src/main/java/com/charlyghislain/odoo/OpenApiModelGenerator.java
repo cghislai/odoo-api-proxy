@@ -215,9 +215,10 @@ public class OpenApiModelGenerator {
         idPathParm.setRequired(true);
         getOperation.addParametersItem(idPathParm);
 
-        ApiResponse response = new ApiResponse();
-        Content content = createJsonModelContent(modelName);
-        response.setContent(content);
+        Content responseContent = createJsonModelContent(modelName);
+        ApiResponse response = new ApiResponse()
+                .content(responseContent)
+                .description("Success response");
         ApiResponses apiResponses = new ApiResponses();
         apiResponses.addApiResponse("success", response);
         getOperation.setResponses(apiResponses);
@@ -242,9 +243,10 @@ public class OpenApiModelGenerator {
         RequestBody requestBody = new RequestBody();
         requestBody.setContent(bodyContent);
 
-        ApiResponse response = new ApiResponse();
         Content responseContent = createJsonModelContent(modelName);
-        response.setContent(responseContent);
+        ApiResponse response = new ApiResponse()
+                .content(responseContent)
+                .description("Success response");
         ApiResponses apiResponses = new ApiResponses();
         apiResponses.addApiResponse("success", response);
         putOperation.setResponses(apiResponses);
@@ -260,9 +262,10 @@ public class OpenApiModelGenerator {
         RequestBody requestBody = new RequestBody();
         requestBody.setContent(bodyContent);
 
-        ApiResponse response = new ApiResponse();
         Content responseContent = createJsonModelContent(modelName);
-        response.setContent(responseContent);
+        ApiResponse response = new ApiResponse()
+                .content(responseContent)
+                .description("Success response");
         ApiResponses apiResponses = new ApiResponses();
         apiResponses.addApiResponse("success", response);
         putOperation.setResponses(apiResponses);
@@ -283,7 +286,8 @@ public class OpenApiModelGenerator {
         idPathParm.setRequired(true);
         putOperation.addParametersItem(idPathParm);
 
-        ApiResponse response = new ApiResponse();
+        ApiResponse response = new ApiResponse()
+                .description("Success response");
         ApiResponses apiResponses = new ApiResponses();
         apiResponses.addApiResponse("success", response);
         putOperation.setResponses(apiResponses);
