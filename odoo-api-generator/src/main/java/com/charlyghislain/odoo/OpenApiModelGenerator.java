@@ -221,7 +221,7 @@ public class OpenApiModelGenerator {
                 .content(responseContent)
                 .description("Success response");
         ApiResponses apiResponses = new ApiResponses();
-        apiResponses.addApiResponse("success", response);
+        apiResponses.addApiResponse("200", response);
         getOperation.setResponses(apiResponses);
         return getOperation;
     }
@@ -249,7 +249,7 @@ public class OpenApiModelGenerator {
                 .content(responseContent)
                 .description("Success response");
         ApiResponses apiResponses = new ApiResponses();
-        apiResponses.addApiResponse("success", response);
+        apiResponses.addApiResponse("200", response);
         putOperation.setResponses(apiResponses);
         return putOperation;
     }
@@ -268,7 +268,7 @@ public class OpenApiModelGenerator {
                 .content(responseContent)
                 .description("Success response");
         ApiResponses apiResponses = new ApiResponses();
-        apiResponses.addApiResponse("success", response);
+        apiResponses.addApiResponse("200", response);
         putOperation.setResponses(apiResponses);
         return putOperation;
     }
@@ -290,7 +290,7 @@ public class OpenApiModelGenerator {
         ApiResponse response = new ApiResponse()
                 .description("Success response");
         ApiResponses apiResponses = new ApiResponses();
-        apiResponses.addApiResponse("success", response);
+        apiResponses.addApiResponse("204", response);
         putOperation.setResponses(apiResponses);
         return putOperation;
     }
