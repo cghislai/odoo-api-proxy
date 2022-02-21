@@ -108,11 +108,13 @@ public class OpenApiModelGenerator {
             String fieldName = e.getKey();
             FieldModel fieldModel = e.getValue();
             Schema fieldSchema = createFieldSchema(fieldModel);
+            fieldSchema.setReadOnly(fieldModel.isReadonly());
+            fieldSchema.setDescription(fieldModel.getHelp());
+            fieldSchema.setTitle(fieldModel.getLabel());
 
+            String modelLabel = OdooParserUtils.parseString(modelsMap.get("name"), "Model label");
+            objectSchema.setTitle(modelLabel);
             objectSchema.addProperties(fieldName, fieldSchema);
-            objectSchema.setReadOnly(fieldModel.isReadonly());
-            objectSchema.setDescription(fieldModel.getHelp());
-            objectSchema.setTitle(fieldModel.getLabel());
         });
         List<String> requiredFields = fields.entrySet().stream()
                 .filter(e -> e.getValue().isRequired())
