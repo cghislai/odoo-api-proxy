@@ -110,6 +110,8 @@ public class OpenApiModelGenerator {
 
             objectSchema.addProperties(fieldName, fieldSchema);
             objectSchema.setReadOnly(fieldModel.isReadonly());
+            objectSchema.setDescription(fieldModel.getHelp());
+            objectSchema.setTitle(fieldModel.getLabel());
         });
         List<String> requiredFields = fields.entrySet().stream()
                 .filter(e -> e.getValue().isRequired())
