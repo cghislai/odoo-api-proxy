@@ -71,8 +71,9 @@ public class OpenApiModelGenerator {
 
     private OpenAPI createOpenApi(OdooClient odooClient, List<Map<Object, Object>> responseObjects, String apiDb) {
         OpenAPI openAPI = new OpenAPI();
-        Info info = new Info();
-        info.setTitle("Odoo REST api (db " + apiDb + ")");
+        Info info = new Info()
+                .title("Odoo REST api (db " + apiDb + ")")
+                .version("v15.0");
         openAPI.setInfo(info);
 
         Paths paths = new Paths();
